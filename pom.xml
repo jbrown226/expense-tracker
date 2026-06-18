@@ -36,11 +36,19 @@
             <artifactId>javafx-graphics</artifactId>
             <version>17</version>
         </dependency>
+
+        <!-- creates unit test modules for logic -->
+        <dependency> 
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.11.4</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-        
+
             <!-- JavaFX Plugin to run the application easily -->
             <plugin>
                 <groupId>org.openjfx</groupId>
@@ -52,31 +60,7 @@
                 </configuration>
             </plugin>
 
-            <-- JaCoCo for test coverage -->
-            <plugin>
-                <groupId>org.Jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.12</version>
-                    <executions>
-                        <!-- Attach Jacoco before tests run -->
-                        <execution>
-                            <id>prepare-agent</id>
-                            <goals>
-                                <goal>prepare-agent</>
-                            </goals>
-                        </execution> 
-                    </executions>  
-
-                    <--! Creates an HTML report for post-test coverage -->
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            
 
         </plugins>
     </build>
