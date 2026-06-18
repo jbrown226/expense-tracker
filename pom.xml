@@ -36,11 +36,19 @@
             <artifactId>javafx-graphics</artifactId>
             <version>17</version>
         </dependency>
+
+        <!-- creates unit test modules for logic -->
+        <dependency> 
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.11.4</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-        
+
             <!-- JavaFX Plugin to run the application easily -->
             <plugin>
                 <groupId>org.openjfx</groupId>
@@ -50,7 +58,7 @@
                     <!-- points to Main.java as the launcher class-->
                     <mainClass>com.expensetracker.Main</mainClass>
                 </configuration>
-            </plugin>
+            </plugin>          
 
         </plugins>
     </build>
