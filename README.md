@@ -6,12 +6,31 @@ Requirements:
     - jdk 17
     - apache maven
     - JAVA_HOME variable configured
+    - Maven added to the system Path
 
 To run:
     1. Open a new terminal
-    2. From the project's root folder, run: mvn javafx:run
+    2. navigate to the project's root directory 
+    3. run: 
+    
+    mvn javafx:run
 
 Project features:
-    - Runs application
-    - Displays project name
-    - Has a clickable button
+    - Launches the JavaFX application
+    - Displays the projects name
+    - Has a single clickable button
+
+Planned Features:
+    - Store expenses type objects with name, cost and occurence (weekly, monthly, etc...)
+    - edit and delete expenses
+    - Caluclate totals as daily, weekly, or monthly
+    - Save expense data between sessions
+
+Data Storage:
+
+License:
+
+Author: 
+
+Justin Brown
+
