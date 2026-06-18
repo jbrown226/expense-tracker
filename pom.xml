@@ -52,27 +52,26 @@
                 </configuration>
             </plugin>
 
-            <-- JaCoCo for test coverage -->
+            <!-- JaCoCo for test coverage -->
             <plugin>
-                <groupId>org.Jacoco</groupId>
+                <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.12</version>
-                    <executions>
-                        <!-- Attach Jacoco before tests run -->
-                        <execution>
-                            <id>prepare-agent</id>
-                            <goals>
-                                <goal>prepare-agent</>
-                            </goals>
-                        </execution> 
-                    </executions>  
+                <executions>
+                    <!-- Attach Jacoco before tests run -->
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>  
 
-                    <--! Creates an HTML report for post-test coverage -->
+                    <!-- Creates an HTML report for post-test coverage -->
                     <execution>
                         <id>report</id>
                         <phase>test</phase>
                         <goals>
-                            <goal>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
