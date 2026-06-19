@@ -1,16 +1,12 @@
 package com.expensetracker;
 
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import java.io.IOException;
+
 
 public class PrimaryController {
 
@@ -20,12 +16,37 @@ public class PrimaryController {
     @FXML
     private ListView<Expense> expenseListView;
 
+    // private ObservableList<Expense> expenseList = FXCollections.observableArrayList();
+
+    /**
+     * Label under list to generate Monthly Total
+     */
+    @FXML
+    private Label totalAmountLabel;
+
+    private void updateTotal() {
+        double total = expenseListView.getItems().stream()
+                .mapToDouble(Expense::getAmount)
+                .sum();
+
+        totalAmountLabel.setText(String.format("Monthly Total: $%.2f", total));
+    }
+    
+    /**
+     * Text box for capturing expense information
+     */
     @FXML
     private TextField expenseInput;
 
+    /**
+     * Text box for capturing expense information
+     */
     @FXML
     private TextField amountInput;
 
+    /**
+     * Text box for capturing expense information
+     */
     @FXML
     private TextField descriptionInput;
 
@@ -36,12 +57,16 @@ public class PrimaryController {
     private ComboBox<String> categoryComboBox;
 
     /**
-     * populates the comboBox with fields for selection
+     * 
      */
     @FXML
     public void initialize() {
         categoryComboBox.getItems().addAll("Weekly", "Bi-weekly", "Monthly");
         categoryComboBox.getSelectionModel().selectFirst();
+
+        expenseListView.getItems().addListener(
+                (ListChangeListener<Expense>) change -> updateTotal());
+        updateTotal();
     }
 
     /**
