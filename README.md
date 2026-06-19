@@ -1,8 +1,8 @@
 # Expense Tracker
 
-This is the start of Expense Tracker. Track reoccuring expenses to guage income requirements and manage personal finances.
+This is the start of Expense Tracker. Track reccuring expenses to gauge income requirements and manage personal finances.
 
-Project is currently being configure for basic structure. No functionality as of yet.
+Currently, the application accepts user data, creating a list of expenses calculated as a monthly total.
 
 ## Prerequisites:
  - **jdk 17**
@@ -23,17 +23,16 @@ mvn -version
 ## Project features:
  - Launches the JavaFX application
  - Displays the projects name
- - Has a single clickable button
+ - Store expenses objects with name and cost. 
+ - Calculate expense totals based on frequency of occurrence
+ - Displays Monthly Total at the bottom of the expense list
 
 ## Planned Features:
  - Time and date displayed at the top of the application
- - Store expenses type objects with name, cost and occurence (weekly, monthly, etc...)
- - edit and delete expenses
- - Caluclate totals as daily, weekly, or monthly
- - Save expense data between sessions
+ - Edit and delete expenses
+ - Storage system for persistent expense entries
  - Built-in calculator for basic calculation
- - generate subtotals for weekly, monthly and yearly
- - detailed view of an expense
+ - Detailed view of an expense
 
 
 ## Data Storage:
