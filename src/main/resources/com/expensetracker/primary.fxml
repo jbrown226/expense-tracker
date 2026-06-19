@@ -24,11 +24,12 @@
 
     <!-- left panel: add expenses -->
     <VBox spacing="10.0" alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
-        <Label text="Expense Input" style="-fx-font-weight: bold; -fx-font-size: 14px;0"/>
-        <TextField fx:id="expenseInput" promptText="Expense name"/>
-        <TextField fx:id="expenseInput" promptText="Expense amount"/>
+        <Label text="Expense Input" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+        <TextField fx:id="expenseInput" promptText="Name of expense"/>
+        <TextField fx:id="amountInput" promptText="Amount"/>
+        <TextField fx:id="descriptionInput" promptText="Description"/>
         <ComboBox fx:id="categoryComboBox" promptText="Frequency"/>
-        <Button text="Add Item" maxWidth="Infinity"/>
+        <Button text="Create Expense" onAction="#addItem" maxWidth="Infinity"/>
     </VBox>
 
     <!-- right panel: expense list -->
@@ -36,5 +37,4 @@
         <Label text="Expense List" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
         <ListView fx:id="expenseListView" VBox.vgrow="ALWAYS"/>
     </VBox>
-  
   </HBox>
