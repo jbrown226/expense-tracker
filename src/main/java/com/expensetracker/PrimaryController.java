@@ -8,6 +8,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 
+
+
+
 public class PrimaryController {
 
     /**
@@ -16,7 +19,6 @@ public class PrimaryController {
     @FXML
     private ListView<Expense> expenseListView;
 
-    // private ObservableList<Expense> expenseList = FXCollections.observableArrayList();
 
     /**
      * Label under list to generate Monthly Total
@@ -63,6 +65,7 @@ public class PrimaryController {
     public void initialize() {
         categoryComboBox.getItems().addAll("Weekly", "Bi-weekly", "Monthly");
         categoryComboBox.getSelectionModel().selectFirst();
+
 
         expenseListView.getItems().addListener(
                 (ListChangeListener<Expense>) change -> updateTotal());
