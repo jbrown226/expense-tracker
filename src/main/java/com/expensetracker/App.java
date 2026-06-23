@@ -18,10 +18,10 @@ public class App extends Application {
         Parent root = loader.load();
 
         //  defines the application window where UI elements are contained
-        Scene scene = new Scene(root, 400, 600);
+        Scene scene = new Scene(root, 800, 600);
 
         // configures the main application window with the dimensions defined 
-        primaryStage.setTitle("Expense Tracker Start");
+        primaryStage.setTitle("Expense Tracker");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

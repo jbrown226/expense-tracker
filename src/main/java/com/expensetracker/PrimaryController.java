@@ -6,6 +6,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
+import javafx.stage.Stage;
 
 
 
@@ -70,6 +72,23 @@ public class PrimaryController {
         expenseListView.getItems().addListener(
                 (ListChangeListener<Expense>) change -> updateTotal());
         updateTotal();
+        
+        // handles opening details view on click
+        expenseListView.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.PRIMARY) {
+                Expense selectedExpense =
+                        expenseListView.getSelectionModel().getSelectedItem();
+
+                if (selectedExpense != null) {
+                    Stage detailsStage = new Stage();
+                    detailsStage.setTitle("Expense Details");
+                    detailsStage.setScene(
+                            ExpenseDetailsScene.create(selectedExpense)
+                    );
+                    detailsStage.show();
+                }
+            }
+        });
     }
 
     /**
@@ -78,7 +97,7 @@ public class PrimaryController {
     @FXML
     private void addItem() {
 
-        // get the 
+        
         String name = expenseInput.getText();
         String amountText = amountInput.getText();
         String description = descriptionInput.getText();

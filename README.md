@@ -26,13 +26,14 @@ mvn -version
  - Store expenses objects with name and cost. 
  - Calculate expense totals based on frequency of occurrence
  - Displays Monthly Total at the bottom of the expense list
+ - Detailed view of an expense
 
 ## Planned Features:
  - Time and date displayed at the top of the application
  - Edit and delete expenses
  - Storage system for persistent expense entries
  - Built-in calculator for basic calculation
- - Detailed view of an expense
+ 
 
 
 ## Data Storage:

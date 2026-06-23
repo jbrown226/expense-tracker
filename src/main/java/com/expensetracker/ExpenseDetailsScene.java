@@ -1,47 +1,38 @@
 package com.expensetracker;
 
-import javafx.geometry.Insets;
+import java.io.IOException;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
 public final class ExpenseDetailsScene {
 
-    /**
-     * Class for handing Details pop-up when an expense is selected from the list
-     */
     private ExpenseDetailsScene() {
     }
 
     public static Scene create(Expense expense) {
-        GridPane root = new GridPane();
-        root.setPadding(new Insets(20));
-        root.setHgap(12);
-        root.setVgap(12);
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    ExpenseDetailsScene.class.getResource(
+                            "expense_details.fxml"
+                    )
+            );
 
-        addDetail(root, 0, "Name", expense.getName());
-        addDetail(root, 1, "Monthly amount", String.format("$%.2f", expense.getAmount()));
-        addDetail(root, 2, "Description", expense.getDescription());
+            Parent root = loader.load();
 
-        Button closeButton = new Button("Close");
-        closeButton.setDefaultButton(true);
-        closeButton.setOnAction(event ->
-                ((Stage) closeButton.getScene().getWindow()).close());
-        root.add(closeButton, 1, 4);
+            ExpenseDetailsController controller =
+                    loader.getController();
 
-        return new Scene(root, 400, 230);
-    }
+            controller.setExpense(expense);
 
-    private static void addDetail(GridPane root, int row, String title, String value) {
-        Label titleLabel = new Label(title + ":");
-        titleLabel.setStyle("-fx-font-weight: bold;");
+            return new Scene(root);
 
-        Label valueLabel = new Label(value == null || value.isBlank() ? "(none)" : value);
-        valueLabel.setWrapText(true);
-        valueLabel.setMaxWidth(260);
-
-        root.addRow(row, titleLabel, valueLabel);
+        } catch (IOException e) {
+            throw new IllegalStateException(
+                    "Could not find details",
+                    e
+            );
+        }
     }
 }

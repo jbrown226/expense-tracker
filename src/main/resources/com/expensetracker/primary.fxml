@@ -24,7 +24,7 @@
 
     <!-- left panel: add expenses -->
     <VBox spacing="10.0" alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
-        <Label text="Expense Input" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+        <Label text="New Expense" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
         <TextField fx:id="expenseInput" promptText="Name of expense"/>
         <TextField fx:id="amountInput" promptText="Amount"/>
         <TextField fx:id="descriptionInput" promptText="Description"/>
