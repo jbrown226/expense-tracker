@@ -1,10 +1,15 @@
 package com.expensetracker;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class ExpenseDetailsController {
+
+    private Expense expense;
+    private Runnable deleteHandler;
 
     @FXML
     private Label nameLabel;
@@ -21,7 +26,9 @@ public class ExpenseDetailsController {
     /**
      * Receives the selected Expense and displays its information.
      */
-    public void setExpense(Expense expense) {
+    public void setExpense(Expense expense, Runnable deleteHandler) {
+        this.expense = expense;
+        this.deleteHandler = deleteHandler;
         nameLabel.setText(displayValue(expense.getName()));
 
         amountLabel.setText(
@@ -46,6 +53,26 @@ public class ExpenseDetailsController {
         }
 
         return value;
+    }
+
+    @FXML
+    private void deleteExpense() {
+        Alert confirmation = new Alert(
+                Alert.AlertType.CONFIRMATION,
+                "Delete " + expense.getName() + "?",
+                ButtonType.YES,
+                ButtonType.NO
+        );
+        confirmation.initOwner(nameLabel.getScene().getWindow());
+        confirmation.setTitle("Delete Expense");
+        confirmation.setHeaderText("This action cannot be undone.");
+
+        confirmation.showAndWait()
+                .filter(button -> button == ButtonType.YES)
+                .ifPresent(button -> {
+                    deleteHandler.run();
+                    closeWindow();
+                });
     }
 
     @FXML

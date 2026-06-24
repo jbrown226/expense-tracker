@@ -11,7 +11,7 @@ public final class ExpenseDetailsScene {
     private ExpenseDetailsScene() {
     }
 
-    public static Scene create(Expense expense) {
+    public static Scene create(Expense expense, Runnable deleteHandler) {
         try {
             FXMLLoader loader = new FXMLLoader(
                     ExpenseDetailsScene.class.getResource(
@@ -24,7 +24,7 @@ public final class ExpenseDetailsScene {
             ExpenseDetailsController controller =
                     loader.getController();
 
-            controller.setExpense(expense);
+            controller.setExpense(expense, deleteHandler);
 
             return new Scene(root);
 

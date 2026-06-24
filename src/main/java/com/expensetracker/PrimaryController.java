@@ -83,7 +83,10 @@ public class PrimaryController {
                     Stage detailsStage = new Stage();
                     detailsStage.setTitle("Expense Details");
                     detailsStage.setScene(
-                            ExpenseDetailsScene.create(selectedExpense)
+                            ExpenseDetailsScene.create(
+                                    selectedExpense,
+                                    () -> expenseListView.getItems().remove(selectedExpense)
+                            )
                     );
                     detailsStage.show();
                 }
