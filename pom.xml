@@ -74,7 +74,7 @@
 
     <build>
         <plugins>
-        
+
             <!-- JavaFX Plugin to run the application easily -->
             <plugin>
                 <groupId>org.openjfx</groupId>
@@ -84,7 +84,7 @@
                     <!-- points to Main.java as the launcher class-->
                     <mainClass>com.expensetracker.Main</mainClass>
                 </configuration>
-            </plugin>
+            </plugin>          
 
         </plugins>
     </build>
