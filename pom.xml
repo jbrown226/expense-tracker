@@ -15,6 +15,19 @@
         <javafx.version>17</javafx.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <!-- Bill of Materials (BOM) handles versions for awssdk modules for compatability-->
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>2.46.15</version> <!-- points to version for all aws dependencies -->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <!-- manage core elements from JavaFX like buttons, scenes and other basic UI tools -->
         <dependency>
@@ -36,7 +49,28 @@
             <artifactId>javafx-graphics</artifactId>
             <version>17</version>
         </dependency>
+
+        <!-- for communication with amazon S3 bucket, for uploading and downloading json-->
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
+        </dependency>
+
+        <!-- uses Java’s URL connection system to send requests to S3 -->
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>url-connection-client</artifactId>
+        </dependency>
+
+        <!-- converts java objects to JSON and back -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.18.3</version>
+        </dependency>
+
     </dependencies>
+        
 
     <build>
         <plugins>

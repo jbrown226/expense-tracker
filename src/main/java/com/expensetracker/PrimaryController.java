@@ -9,11 +9,15 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 
 
 
 
 public class PrimaryController {
+
+    private final S3Repository expenseRepository = new S3Repository();
 
     /**
      * List for storing Expense-type objects from Expense.java
@@ -68,6 +72,10 @@ public class PrimaryController {
         categoryComboBox.getItems().addAll("Weekly", "Bi-weekly", "Monthly");
         categoryComboBox.getSelectionModel().selectFirst();
 
+        expenseListView.getItems().setAll(
+                expenseRepository.findAll()
+        );
+
 
         expenseListView.getItems().addListener(
                 (ListChangeListener<Expense>) change -> updateTotal());
@@ -85,13 +93,18 @@ public class PrimaryController {
                     detailsStage.setScene(
                             ExpenseDetailsScene.create(
                                     selectedExpense,
-                                    () -> expenseListView.getItems().remove(selectedExpense)
+                                    () -> {
+                                        expenseListView.getItems().remove(selectedExpense);
+                                        saveExpenses();
+                                    }
                             )
                     );
                     detailsStage.show();
                 }
             }
         });
+
+        
     }
 
     /**
@@ -132,6 +145,8 @@ public class PrimaryController {
                 
                 // adds the new expense to the ListView pane
                 expenseListView.getItems().add(newExpense);
+                
+                saveExpenses();
 
                 expenseInput.clear();
                 amountInput.clear();
@@ -141,5 +156,14 @@ public class PrimaryController {
                 System.out.println("Invalid dollar amount");
             }
         }
+
     }
+
+    private void saveExpenses() {
+        expenseRepository.saveAll(
+                new ArrayList<>(expenseListView.getItems())
+        );
+}
+
+
 }
