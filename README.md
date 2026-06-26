@@ -3,6 +3,7 @@
 This is the start of Expense Tracker. Track reccuring expenses to gauge income requirements and manage personal finances.
 
 Currently, the application accepts user data, creating a list of expenses calculated as a monthly total.
+Users can now click an entry in the list for details about an entry. 
 
 ## Prerequisites:
  - **jdk 17**
@@ -27,17 +28,14 @@ mvn -version
  - Calculate expense totals based on frequency of occurrence
  - Displays Monthly Total at the bottom of the expense list
  - Detailed view of an expense
+ - Delete an expense from the list
+ - Expenses are now saved via JSON storage uploaded to AWS
 
 ## Planned Features:
  - Time and date displayed at the top of the application
- - Edit and delete expenses
- - Storage system for persistent expense entries
- - Built-in calculator for basic calculation
+ - Add email and/or phone contact to created expenses (optional fields)
+ - Work on CSS styling
  
-
-
-## Data Storage:
-
 ## License:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

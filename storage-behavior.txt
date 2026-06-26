@@ -1,0 +1,13 @@
+App starts
+ -> expenseRepository.findAll()
+ -> expenses are loaded from S3
+
+Expense added
+    -> add item to ListView
+    -> saveExpenses()
+    -> updated JSON uploaded to S3
+
+Expense deleted
+    -> removed from ListView
+    -> saveExpenses()
+    -> updated JSON uploaded to S3
