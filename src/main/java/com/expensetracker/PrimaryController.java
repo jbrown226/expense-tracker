@@ -64,6 +64,8 @@ public class PrimaryController {
     @FXML
     private ComboBox<String> categoryComboBox;
 
+    @FXML TextField contactPhoneInput;
+
     /**
      * 
      */
@@ -118,6 +120,7 @@ public class PrimaryController {
         String amountText = amountInput.getText();
         String description = descriptionInput.getText();
         String frequency = categoryComboBox.getValue();
+        String contactPhone = contactPhoneInput.getText();
         
 
         // checks for missing name and amount
@@ -141,7 +144,7 @@ public class PrimaryController {
                 }
 
                 // creates a new object of the Expense class
-                Expense newExpense = new Expense(name, finalAmount, description, frequency);
+                Expense newExpense = new Expense(name, finalAmount, description, frequency, contactPhone);
                 
                 // adds the new expense to the ListView pane
                 expenseListView.getItems().add(newExpense);
@@ -151,6 +154,7 @@ public class PrimaryController {
                 expenseInput.clear();
                 amountInput.clear();
                 descriptionInput.clear();
+                contactPhoneInput.clear();
 
             } catch (NumberFormatException e) {
                 System.out.println("Invalid dollar amount");
@@ -163,7 +167,7 @@ public class PrimaryController {
         expenseRepository.saveAll(
                 new ArrayList<>(expenseListView.getItems())
         );
-}
+    }
 
 
 }

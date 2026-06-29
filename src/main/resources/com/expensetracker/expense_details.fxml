@@ -38,31 +38,42 @@
               GridPane.columnIndex="1"
               GridPane.rowIndex="1"/>
 
-       <Label text="Description:"
+       <Label text="Contact Phone:"
               style="-fx-font-weight: bold;"
               GridPane.columnIndex="0"
               GridPane.rowIndex="2"/>
 
-       <Label fx:id="descriptionLabel"
+       <Label fx:id="contactPhoneLabel"
               wrapText="true"
               maxWidth="260"
               GridPane.columnIndex="1"
               GridPane.rowIndex="2"/>
 
-       <Label text="Frequency:"
+       <Label text="Description:"
               style="-fx-font-weight: bold;"
               GridPane.columnIndex="0"
               GridPane.rowIndex="3"/>
 
-       <Label fx:id="frequencyLabel"
+       <Label fx:id="descriptionLabel"
+              wrapText="true"
+              maxWidth="260"
               GridPane.columnIndex="1"
               GridPane.rowIndex="3"/>
+
+       <Label text="Frequency:"
+              style="-fx-font-weight: bold;"
+              GridPane.columnIndex="0"
+              GridPane.rowIndex="4"/>
+
+       <Label fx:id="frequencyLabel"
+              GridPane.columnIndex="1"
+              GridPane.rowIndex="4"/>
              
        <HBox spacing="10"
               alignment="CENTER_RIGHT"
               GridPane.columnIndex="0"
               GridPane.columnSpan="2"
-              GridPane.rowIndex="4">
+              GridPane.rowIndex="5">
 
                      <Button text="Delete"
                             onAction="#deleteExpense"/>
@@ -70,9 +81,5 @@
                      <Button text="Close"
                             defaultButton="true"
                             onAction="#closeWindow"/>
-
        </HBox>
-
-       
-
 </GridPane>

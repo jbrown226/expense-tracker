@@ -6,16 +6,18 @@ public class Expense {
     private double amount;
     private String description;
     private String frequency;
+    private String contactPhone;
 
     public Expense() {
         // needed 
     }
 
-    public Expense(String name, double amount, String description, String frequency) {
+    public Expense(String name, double amount, String description, String frequency, String contactPhone) {
         this.name = name;
         this.amount = amount;
         this.description = description;
         this.frequency = frequency;
+        this.contactPhone = contactPhone;
     }
 
     
@@ -36,6 +38,10 @@ public class Expense {
         return frequency;
     }
 
+    public String getContactPhone() {
+        return contactPhone;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -50,6 +56,10 @@ public class Expense {
 
     public void setFrequency(String frequency) {
         this.frequency = frequency;
+    }
+
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
     }
     
     @Override

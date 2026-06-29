@@ -23,6 +23,9 @@ public class ExpenseDetailsController {
     @FXML
     private Label frequencyLabel;
 
+    @FXML
+    private Label contactPhoneLabel;
+
     /**
      * Receives the selected Expense and displays its information.
      */
@@ -42,6 +45,11 @@ public class ExpenseDetailsController {
         frequencyLabel.setText(
                 displayValue(expense.getFrequency())
         );
+
+        contactPhoneLabel.setText(
+                displayValue(expense.getContactPhone())
+        );
+
     }
 
     /**
@@ -54,6 +62,8 @@ public class ExpenseDetailsController {
 
         return value;
     }
+
+    
 
     @FXML
     private void deleteExpense() {
