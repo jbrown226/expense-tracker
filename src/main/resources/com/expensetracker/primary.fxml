@@ -28,6 +28,7 @@
         <TextField fx:id="expenseInput" promptText="Name of expense"/>
         <TextField fx:id="amountInput" promptText="Amount"/>
         <TextField fx:id="descriptionInput" promptText="Description"/>
+        <TextField fx:id="contactPhoneInput" promptText="Phone Number"/>
         <ComboBox fx:id="categoryComboBox" promptText="Frequency"/>
         <Button text="Create Expense" onAction="#addItem" maxWidth="Infinity"/>
     </VBox>

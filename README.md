@@ -22,18 +22,16 @@ mvn -version
     `mvn javafx:run`
 
 ## Project features:
- - Launches the JavaFX application
- - Displays the projects name
- - Store expenses objects with name and cost. 
- - Calculate expense totals based on frequency of occurrence
- - Displays Monthly Total at the bottom of the expense list
- - Detailed view of an expense
- - Delete an expense from the list
- - Expenses are now saved via JSON storage uploaded to AWS
+ - Add and display recurring expenses by name and monthly cost
+ - Automatically convert weekly, biweekly, and monthly expenses into estimated monthly amounts
+ - Calculate and display the total monthly cost of all listed expenses
+ - Store a contact phone number for each expense
+ - View detailed information for any selected expense
+ - Save expense data in JSON format
+ - Store and retrieve expense data using an Amazon S3 bucket
 
 ## Planned Features:
  - Time and date displayed at the top of the application
- - Add email and/or phone contact to created expenses (optional fields)
  - Work on CSS styling
  
 ## License:
