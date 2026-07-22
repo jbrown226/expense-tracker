@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class PrimaryController {
 
-    private final S3Repository expenseRepository = new S3Repository();
+    private final LocalJsonRepository expenseRepository = new LocalJsonRepository();
 
     /**
      * List for storing Expense-type objects from Expense.java

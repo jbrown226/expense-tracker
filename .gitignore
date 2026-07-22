@@ -9,3 +9,5 @@ target/
 credentials
 *.csv
 .env
+expenses.json
+expense-tracker.worktrees/
