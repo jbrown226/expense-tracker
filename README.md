@@ -28,7 +28,7 @@ mvn -version
  - Store a contact phone number for each expense
  - View detailed information for any selected expense
  - Save expense data in JSON format
- - Store and retrieve expense data using an Amazon S3 bucket
+ - Store and retrieve expense data locally in `expenses.json`
 
 ## Planned Features:
  - Time and date displayed at the top of the application
